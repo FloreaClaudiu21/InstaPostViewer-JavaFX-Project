@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="764.0" prefWidth="1024.0" style="-fx-background-color: #613659;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.instapost.instapostviewer.main.MainController">
+   <children>
+      <BorderPane layoutX="7.0" prefHeight="589.0" prefWidth="450.0" style="-fx-background-color: #211522;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <Pane fx:id="navbar" prefHeight="58.0" prefWidth="464.0" style="-fx-background-color: #613659;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="closeBtn" accessibleText="Close the program" cancelButton="true" layoutX="974.0" layoutY="15.0" mnemonicParsing="false" onAction="#close" onMouseEntered="#closeEnter" onMouseExited="#closeExit" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: #BD081C;" text="X" textFill="#f4ebd0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="53.0" layoutY="15.0" text="InstaPostViewer - JavaFX Project" textFill="#f4ebd0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="logo" blendMode="OVERLAY" fitHeight="38.0" fitWidth="40.0" layoutX="8.0" layoutY="10.0" pickOnBounds="true" smooth="false" />
+                  <Button fx:id="minBtn" cancelButton="true" layoutX="926.0" layoutY="15.0" mnemonicParsing="false" onAction="#minimize" onMouseEntered="#minEnter" onMouseExited="#minExit" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: black;" text="_" textFill="#f4ebd0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <HBox layoutX="327.0" layoutY="11.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="36.0" prefWidth="586.0" spacing="10.0">
+                     <children>
+                        <Label fx:id="userLbl" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="500.0" minWidth="50.0" prefHeight="30.0" text="admin" textFill="#f4ebd0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="37.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="https://img.freepik.com/free-icon/user_318-159711.jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+         </top>
+         <center>
+            <Pane prefHeight="568.0" prefWidth="850.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField fx:id="searchTB" layoutX="15.0" layoutY="14.0" onKeyPressed="#press" prefHeight="37.0" prefWidth="904.0" promptText="Enter a username..." text="universitatearomanoamericana">
+                     <font>
+                        <Font size="14.0" />
+                     </font></TextField>
+                  <Button fx:id="searchBtn" layoutX="931.0" layoutY="15.0" mnemonicParsing="false" onAction="#search" prefHeight="35.0" prefWidth="83.0" text="SEARCH" />
+                  <ImageView fx:id="imgGalery" fitHeight="562.0" fitWidth="994.0" layoutX="14.0" layoutY="135.0" onMouseClicked="#toggleInfoPanel" pickOnBounds="true" />
+                  <Button fx:id="prevBtn" layoutX="853.0" layoutY="87.0" mnemonicParsing="false" onAction="#prev" prefHeight="27.0" prefWidth="67.0" text="Prev" />
+                  <Button fx:id="nextBtn" layoutX="934.0" layoutY="87.0" mnemonicParsing="false" onAction="#next" prefHeight="27.0" prefWidth="75.0" text="Next" />
+                  <ImageView fx:id="userImg" fitHeight="45.0" fitWidth="45.0" layoutX="14.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="usernameLbl" layoutX="72.0" layoutY="75.0" text="Username" textFill="#f4ebd0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="likesLbl" alignment="CENTER_RIGHT" layoutX="740.0" layoutY="149.0" prefHeight="35.0" prefWidth="250.0" text="0 ❤" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <effect>
+                        <DropShadow radius="11.4825" width="26.93">
+                           <color>
+                              <Color opacity="0.9316239356994629" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Label>
+                  <Pane fx:id="loadingPanel" layoutX="2.0" layoutY="68.0" prefHeight="633.0" prefWidth="1013.0" style="-fx-background-color: #211522;" visible="false">
+                     <children>
+                        <ImageView fitHeight="354.0" fitWidth="528.0" layoutX="243.0" layoutY="140.0" pickOnBounds="true" smooth="false">
+                           <image>
+                              <Image url="https://mir-s3-cdn-cf.behance.net/project_modules/max_632/64ee1832914441.569836c7b2ff3.gif" />
+                           </image></ImageView>
+                        <Label layoutX="418.0" layoutY="519.0" text="LOADING..." textFill="#bcb8b8">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Label fx:id="progLbl" alignment="TOP_RIGHT" layoutX="658.0" layoutY="88.0" prefHeight="27.0" prefWidth="164.0" text="0/0" textFill="#e19cca">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="followLbl" layoutX="72.0" layoutY="106.0" text="0 followers" textFill="#b59e9e" />
+                  <ImageView fx:id="infoImg" fitHeight="45.0" fitWidth="45.0" layoutX="20.0" layoutY="144.0" onMouseClicked="#toggleInfoPanel" onMouseEntered="#infoEnter" onMouseExited="#infoExit" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="https://cdn.pixabay.com/photo/2015/06/09/16/12/info-803717_960_720.png" />
+                     </image>
+                  </ImageView>
+                  <ScrollPane fx:id="infoPanel" layoutX="72.0" layoutY="149.0" pannable="true" prefHeight="400.0" prefWidth="450.0" style="-fx-background-color: transparent; -fx-background-insets: 50; -fx-background: transparent;" visible="false">
+                    <content>
+                      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="774.0" minWidth="432.0" style="-fx-background-color: rgba(0, 0, 0, 0.8);">
+                           <children>
+                              <VBox layoutX="4.0" layoutY="25.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="940.0" minWidth="360.0" prefWidth="360.0" spacing="15.0" style="-fx-background: transparent; -fx-background-color: transparent;" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label text="ⓘ User:" textFill="#f8f5f5" underline="true">
+                                       <font>
+                                          <Font name="Arial Black" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="userInfoLbl" alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="425.0" text="test" textFill="#f4ebd0" wrapText="true">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="15.0" layoutY="15.0" text="ⓘ Username:" textFill="#f8f5f5" underline="true">
+                                       <font>
+                                          <Font name="Arial Black" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="usernameInfoLbl" alignment="TOP_LEFT" layoutX="15.0" layoutY="49.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="425.0" text="test" textFill="#f4ebd0" wrapText="true">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="15.0" layoutY="113.0" text="ⓘ Category:" textFill="#f8f5f5" underline="true">
+                                       <font>
+                                          <Font name="Arial Black" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="categoryInfoLbl" alignment="TOP_LEFT" layoutX="15.0" layoutY="147.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="425.0" text="test" textFill="#f4ebd0" wrapText="true">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="15.0" layoutY="15.0" text="ⓘ Private Account:" textFill="#f8f5f5" underline="true">
+                                       <font>
+                                          <Font name="Arial Black" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="privateInfoLbl" alignment="TOP_LEFT" layoutX="15.0" layoutY="49.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="254.0" text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" textFill="#f4ebd0" wrapText="true">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="15.0" layoutY="677.0" text="ⓘ Verified Account:" textFill="#f8f5f5" underline="true">
+                                       <font>
+                                          <Font name="Arial Black" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="verifiedInfoLbl" alignment="TOP_LEFT" layoutX="15.0" layoutY="711.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="254.0" text="true" textFill="#f4ebd0" wrapText="true">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="15.0" layoutY="285.0" text="ⓘ Bio:" textFill="#f8f5f5" underline="true">
+                                       <font>
+                                          <Font name="Arial Black" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="bioInfoLbl" alignment="TOP_LEFT" layoutX="15.0" layoutY="319.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="425.0" text="test" textFill="#f4ebd0" wrapText="true">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Line endX="300.0" layoutX="10.0" startX="-110.0" stroke="#1967e4" strokeMiterLimit="20.0" VBox.vgrow="ALWAYS" />
+                                    <Label layoutX="15.0" layoutY="383.0" text="📌 Location:" textFill="#f8f5f5" underline="true">
+                                       <font>
+                                          <Font name="Arial Black" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="locInfoLbl" alignment="TOP_LEFT" layoutX="15.0" layoutY="417.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="425.0" text="RomaniaRomaniaRomaniaRomaniaRomaniaRomaniaRomaniaRomaniaRomania" textFill="#f4ebd0" wrapText="true">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="📅 Published At:" textFill="#f8f5f5" underline="true">
+                                       <font>
+                                          <Font name="Arial Black" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="createdInfoLbl" alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="425.0" text="RomaniaRomaniaRomaniaRomaniaRomaniaRomaniaRomaniaRomaniaRomania" textFill="#f4ebd0" wrapText="true">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="15.0" layoutY="113.0" text="✍ Summary:" textFill="#f8f5f5" underline="true">
+                                       <font>
+                                          <Font name="Arial Black" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="summaryInfoLbl" alignment="TOP_LEFT" layoutX="15.0" layoutY="147.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="409.0" text="RomaniaRomaniaRomaniaRomaniaRomaniaRomaniaRomaniaRomaniaRomania" textFill="#f4ebd0" wrapText="true">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </AnchorPane>
+                    </content>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </ScrollPane>
+                  <HBox layoutX="240.0" layoutY="85.0" prefHeight="100.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

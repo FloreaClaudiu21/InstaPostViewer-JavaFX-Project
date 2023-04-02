@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="460.0" style="-fx-background-color: #613659;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.instapost.instapostviewer.auth.LoginController">
+   <children>
+      <BorderPane layoutX="1.0" prefHeight="593.0" prefWidth="456.0" style="-fx-background-color: #211522;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <Pane fx:id="navbar" prefHeight="58.0" prefWidth="464.0" style="-fx-background-color: #613659;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="closeBtn" accessibleText="Close the program" cancelButton="true" layoutX="410.0" layoutY="15.0" mnemonicParsing="false" onAction="#close" onMouseEntered="#closeEnter" onMouseExited="#closeExit" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: #BD081C;" text="X" textFill="#f4ebd0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="55.0" layoutY="15.0" text="InstaPostViewer - JavaFX Project" textFill="#f4ebd0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="logo" blendMode="OVERLAY" fitHeight="38.0" fitWidth="40.0" layoutX="8.0" layoutY="10.0" pickOnBounds="true" smooth="false" />
+               </children>
+            </Pane>
+         </top>
+         <center>
+            <Pane prefHeight="535.0" prefWidth="453.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fx:id="raulogoImg" blendMode="OVERLAY" fitHeight="148.0" fitWidth="248.0" layoutX="101.0" layoutY="14.0" pickOnBounds="true" smooth="false">
+                     <effect>
+                        <ColorAdjust brightness="1.0" contrast="0.07" hue="0.05" saturation="0.05" />
+                     </effect></ImageView>
+                  <TextField fx:id="emailTF" layoutX="40.0" layoutY="289.0" prefHeight="39.0" prefWidth="384.0" promptText="Enter your email address..." />
+                  <PasswordField fx:id="passTF" layoutX="42.0" layoutY="392.0" prefHeight="42.0" prefWidth="381.0" promptText="Enter your password..." />
+                  <Button fx:id="loginBtn" layoutX="151.0" layoutY="445.0" mnemonicParsing="false" onAction="#login" onMouseEntered="#loginEnter" onMouseExited="#loginExit" prefHeight="34.0" prefWidth="161.0" style="-fx-border-radius: 20px; -fx-background-color: black;" text="LOGIN" textFill="#a63290" />
+                  <Label layoutX="41.0" layoutY="356.0" text="Password:" textFill="#d3b1c2">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="41.0" layoutY="256.0" text="Email:" textFill="#d3b1c2">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Hyperlink fx:id="changeBtn" layoutX="109.0" layoutY="496.0" onAction="#switchScene" text="You don't have an account? Register here" textFill="#9e418d" />
+                  <Label layoutX="68.0" layoutY="180.0" text="Sesiunea de comunicari stintifice" textFill="#c197d2">
+                     <font>
+                        <Font name="Arial Black" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="173.0" layoutY="207.0" />
+                  <Label layoutX="158.0" layoutY="216.0" text="Java VS JavaFX" textFill="#c197d2">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
