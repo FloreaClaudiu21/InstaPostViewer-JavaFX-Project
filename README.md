@@ -1,9 +1,9 @@
 #InstaPostViewer-JavaFX-Project: Browse Instagram Accounts with Ease
 ====================================================================
 
-<img src="https://i.gyazo.com/846c6408828420b1c7c624c741f1e2f1.png" alt="" />
-<img src="https://i.gyazo.com/9ad8a1a89917a48f376e49ff789ccab9.jpg" alt="" />
-<img src="https://i.gyazo.com/0306573a3980bf064b96c84b7f61121e.png" alt="" />
+<img src="https://i.gyazo.com/93c412958db7e891e0a05b5cfba70f3b.png" alt="" />
+<img src="https://i.gyazo.com/f40963dc7789f80674af0b1a06e2345c.png" alt="" />
+<img src="https://i.gyazo.com/187de0db94dd208f9d0587c0963e0a67.jpg" alt="" />
 
 Welcome to the InstaPostViewer-JavaFX-Project! This is a JavaFX application that allows you to browse Instagram account images using RapidApi Instagram-looter. You can easily search for any Instagram account by its username and view its pictures using the app.
 
