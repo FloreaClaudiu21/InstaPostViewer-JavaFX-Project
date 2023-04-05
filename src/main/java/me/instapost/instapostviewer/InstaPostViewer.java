@@ -60,7 +60,7 @@ public class InstaPostViewer extends Application {
         }
     }
     public static void changeScene(String fxmlFile) {
-       changeScene(fxmlFile, 460, 600);
+       changeScene(fxmlFile, 640, 480);
     }
     public static Optional<ButtonType> showConfirm(String title, String msg) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

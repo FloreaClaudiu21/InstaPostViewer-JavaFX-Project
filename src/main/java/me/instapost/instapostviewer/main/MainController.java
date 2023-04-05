@@ -30,9 +30,9 @@ public class MainController {
     @FXML
     public Button minBtn;
     @FXML
-    public Pane navbar;
+    public Button logoutBtn;
     @FXML
-    public ImageView logo;
+    public Pane mainPanel;
     @FXML
     public ImageView imgGalery;
     @FXML
@@ -145,7 +145,7 @@ public class MainController {
     @FXML
     public void prev() {
         startImage -= 1;
-        if (startImage < 0) {
+        if (startImage <= 0) {
             startImage = maxImage - 1;
         }
         Post post = InstaPostViewer.POSTS.get(startImage);
@@ -154,6 +154,11 @@ public class MainController {
         imgGalery.setImage(new Image(post.postURL));
         progLbl.setText((startImage + 1) + "/" + maxImage);
         likesLbl.setText(InstaPostViewer.numberFormat((double)post.likes, 0) + "❤");
+    }
+    @FXML
+    public void logout() {
+        InstaPostViewer.instance.loggedUser = null;
+        InstaPostViewer.changeScene("login.fxml");
     }
     @FXML
     public void search() {
@@ -219,11 +224,21 @@ public class MainController {
     }
     @FXML
     public void closeEnter() {
-        this.closeBtn.setStyle("-fx-background-color: red;");
+        this.closeBtn.setStyle("-fx-background-color: red;-fx-background-radius: 20px;-fx-text-fill: yellow;");
     }
     @FXML
     public void closeExit() {
-        this.closeBtn.setStyle("-fx-background-color: #BD081C;");
+        this.closeBtn.setStyle("-fx-background-color: #BD081C;-fx-background-radius: 20px;-fx-text-fill: white;");
+    }
+    @FXML
+    public void logoutEnter() {
+        this.logoutBtn.setCursor(Cursor.HAND);
+        this.logoutBtn.setStyle("-fx-text-fill: red;-fx-background-color: black;");
+    }
+    @FXML
+    public void logoutExit() {
+        this.logoutBtn.setCursor(Cursor.DEFAULT);
+        this.logoutBtn.setStyle("-fx-text-fill: #d3b1c2;-fx-background-color: black;");
     }
     @FXML
     public void infoEnter() {
@@ -244,24 +259,21 @@ public class MainController {
     @FXML
     protected void initialize() {
         Platform.runLater(() -> {
-            this.scene = this.navbar.getScene();
+            this.scene = this.mainPanel.getScene();
             this.stage = (Stage) this.scene.getWindow();
             if (this.scene == null) {
                 return;
             }
             AtomicReference<Double> xOffset = new AtomicReference<>((double) 0);
             AtomicReference<Double> yOffset = new AtomicReference<>((double) 0);
-            this.navbar.setOnMousePressed(event -> {
+            this.mainPanel.setOnMousePressed(event -> {
                 xOffset.set(event.getSceneX());
                 yOffset.set(event.getSceneY());
             });
-            this.navbar.setOnMouseDragged(event -> {
+            this.mainPanel.setOnMouseDragged(event -> {
                 this.stage.setX(event.getScreenX() - xOffset.get());
                 this.stage.setY(event.getScreenY() - yOffset.get());
             });
-            String path = "/me/instapost/instapostviewer/images/";
-            String log = RegisterController.class.getResource(path + "logo.png").toString();
-            this.logo.setImage(new Image(log));
             this.userLbl.setText(InstaPostViewer.instance.loggedUser.EMAIL);
             this.userLbl.setTooltip(new Tooltip(InstaPostViewer.instance.loggedUser.EMAIL));
             search();

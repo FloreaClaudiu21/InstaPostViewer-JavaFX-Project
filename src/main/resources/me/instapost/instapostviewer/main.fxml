@@ -9,101 +9,37 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="764.0" prefWidth="1024.0" style="-fx-background-color: #613659;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.instapost.instapostviewer.main.MainController">
+<AnchorPane fx:id="mainPanel" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #613659;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.instapost.instapostviewer.main.MainController">
    <children>
-      <BorderPane layoutX="7.0" prefHeight="589.0" prefWidth="450.0" style="-fx-background-color: #211522;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="0.0">
-         <top>
-            <Pane fx:id="navbar" prefHeight="58.0" prefWidth="464.0" style="-fx-background-color: #613659;" BorderPane.alignment="CENTER">
-               <children>
-                  <Button fx:id="closeBtn" accessibleText="Close the program" cancelButton="true" layoutX="974.0" layoutY="15.0" mnemonicParsing="false" onAction="#close" onMouseEntered="#closeEnter" onMouseExited="#closeExit" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: #BD081C;" text="X" textFill="#f4ebd0">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Button>
-                  <Label layoutX="53.0" layoutY="15.0" text="InstaPostViewer - JavaFX Project" textFill="#f4ebd0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <ImageView fx:id="logo" blendMode="OVERLAY" fitHeight="38.0" fitWidth="40.0" layoutX="8.0" layoutY="10.0" pickOnBounds="true" smooth="false" />
-                  <Button fx:id="minBtn" cancelButton="true" layoutX="926.0" layoutY="15.0" mnemonicParsing="false" onAction="#minimize" onMouseEntered="#minEnter" onMouseExited="#minExit" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: black;" text="_" textFill="#f4ebd0">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Button>
-                  <HBox layoutX="327.0" layoutY="11.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="36.0" prefWidth="586.0" spacing="10.0">
-                     <children>
-                        <Label fx:id="userLbl" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="500.0" minWidth="50.0" prefHeight="30.0" text="admin" textFill="#f4ebd0">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="37.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="https://img.freepik.com/free-icon/user_318-159711.jpg" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </HBox>
-               </children>
-            </Pane>
-         </top>
+      <BorderPane layoutX="7.0" prefHeight="589.0" prefWidth="450.0" style="-fx-background-color: #eee;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
          <center>
-            <Pane prefHeight="568.0" prefWidth="850.0" BorderPane.alignment="CENTER">
+            <Pane prefHeight="725.0" prefWidth="827.0" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="searchTB" layoutX="15.0" layoutY="14.0" onKeyPressed="#press" prefHeight="37.0" prefWidth="904.0" promptText="Enter a username..." text="universitatearomanoamericana">
+                  <ImageView fx:id="imgGalery" fitHeight="707.0" fitWidth="829.0" layoutX="-1.0" layoutY="2.0" onMouseClicked="#toggleInfoPanel" pickOnBounds="true" />
+                  <Button fx:id="prevBtn" layoutX="651.0" layoutY="658.0" mnemonicParsing="false" onAction="#prev" prefHeight="33.0" prefWidth="80.0" style="-fx-background-color: black;" text="Prev" textFill="#d3b1c2">
                      <font>
-                        <Font size="14.0" />
-                     </font></TextField>
-                  <Button fx:id="searchBtn" layoutX="931.0" layoutY="15.0" mnemonicParsing="false" onAction="#search" prefHeight="35.0" prefWidth="83.0" text="SEARCH" />
-                  <ImageView fx:id="imgGalery" fitHeight="562.0" fitWidth="994.0" layoutX="14.0" layoutY="135.0" onMouseClicked="#toggleInfoPanel" pickOnBounds="true" />
-                  <Button fx:id="prevBtn" layoutX="853.0" layoutY="87.0" mnemonicParsing="false" onAction="#prev" prefHeight="27.0" prefWidth="67.0" text="Prev" />
-                  <Button fx:id="nextBtn" layoutX="934.0" layoutY="87.0" mnemonicParsing="false" onAction="#next" prefHeight="27.0" prefWidth="75.0" text="Next" />
-                  <ImageView fx:id="userImg" fitHeight="45.0" fitWidth="45.0" layoutX="14.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label fx:id="usernameLbl" layoutX="72.0" layoutY="75.0" text="Username" textFill="#f4ebd0">
+                        <Font size="15.0" />
+                     </font></Button>
+                  <Button fx:id="nextBtn" layoutX="740.0" layoutY="658.0" mnemonicParsing="false" onAction="#next" prefHeight="27.0" prefWidth="75.0" style="-fx-background-color: #d3b1c2;" text="Next" textFill="WHITE">
                      <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="likesLbl" alignment="CENTER_RIGHT" layoutX="740.0" layoutY="149.0" prefHeight="35.0" prefWidth="250.0" text="0 ❤" textFill="WHITE">
+                        <Font size="15.0" />
+                     </font></Button>
+                  <Label fx:id="progLbl" alignment="TOP_RIGHT" layoutX="462.0" layoutY="660.0" prefHeight="27.0" prefWidth="164.0" text="0/0" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                      <effect>
-                        <DropShadow radius="11.4825" width="26.93">
-                           <color>
-                              <Color opacity="0.9316239356994629" />
-                           </color>
-                        </DropShadow>
+                        <DropShadow spread="0.06" />
                      </effect>
                   </Label>
-                  <Pane fx:id="loadingPanel" layoutX="2.0" layoutY="68.0" prefHeight="633.0" prefWidth="1013.0" style="-fx-background-color: #211522;" visible="false">
-                     <children>
-                        <ImageView fitHeight="354.0" fitWidth="528.0" layoutX="243.0" layoutY="140.0" pickOnBounds="true" smooth="false">
-                           <image>
-                              <Image url="https://mir-s3-cdn-cf.behance.net/project_modules/max_632/64ee1832914441.569836c7b2ff3.gif" />
-                           </image></ImageView>
-                        <Label layoutX="418.0" layoutY="519.0" text="LOADING..." textFill="#bcb8b8">
-                           <font>
-                              <Font size="36.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Label fx:id="progLbl" alignment="TOP_RIGHT" layoutX="658.0" layoutY="88.0" prefHeight="27.0" prefWidth="164.0" text="0/0" textFill="#e19cca">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="followLbl" layoutX="72.0" layoutY="106.0" text="0 followers" textFill="#b59e9e" />
-                  <ImageView fx:id="infoImg" fitHeight="45.0" fitWidth="45.0" layoutX="20.0" layoutY="144.0" onMouseClicked="#toggleInfoPanel" onMouseEntered="#infoEnter" onMouseExited="#infoExit" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="infoImg" fitHeight="45.0" fitWidth="45.0" layoutX="14.0" layoutY="82.0" onMouseClicked="#toggleInfoPanel" onMouseEntered="#infoEnter" onMouseExited="#infoExit" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="https://cdn.pixabay.com/photo/2015/06/09/16/12/info-803717_960_720.png" />
                      </image>
                   </ImageView>
-                  <ScrollPane fx:id="infoPanel" layoutX="72.0" layoutY="149.0" pannable="true" prefHeight="400.0" prefWidth="450.0" style="-fx-background-color: transparent; -fx-background-insets: 50; -fx-background: transparent;" visible="false">
+                  <ScrollPane fx:id="infoPanel" layoutX="67.0" layoutY="82.0" pannable="true" prefHeight="400.0" prefWidth="450.0" style="-fx-background-color: transparent; -fx-background-insets: 50; -fx-background: transparent;" visible="false">
                     <content>
-                      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="774.0" minWidth="432.0" style="-fx-background-color: rgba(0, 0, 0, 0.8);">
+                      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="774.0" minWidth="432.0" style="-fx-background-color: rgba(0, 0, 0, 0.5);">
                            <children>
                               <VBox layoutX="4.0" layoutY="25.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="940.0" minWidth="360.0" prefWidth="360.0" spacing="15.0" style="-fx-background: transparent; -fx-background-color: transparent;" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="0.0">
                                  <children>
@@ -213,10 +149,110 @@
                         <Insets />
                      </opaqueInsets>
                   </ScrollPane>
-                  <HBox layoutX="240.0" layoutY="85.0" prefHeight="100.0" prefWidth="200.0" />
+                  <Pane prefHeight="81.0" prefWidth="829.0" style="-fx-background-color: rgba(0,0,0,0.65);">
+                     <children>
+                        <Label fx:id="usernameLbl" layoutX="69.0" layoutY="12.0" text="Username" textFill="#ffc0f5">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <effect>
+                              <Bloom />
+                           </effect>
+                        </Label>
+                        <Label fx:id="followLbl" layoutX="69.0" layoutY="45.0" text="0 followers" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Label>
+                        <ImageView fx:id="userImg" fitHeight="45.0" fitWidth="45.0" layoutX="14.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="likesLbl" alignment="CENTER_RIGHT" layoutX="536.0" layoutY="21.0" prefHeight="35.0" prefWidth="275.0" text="0 ❤" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                           <effect>
+                              <DropShadow radius="11.4825" width="26.93">
+                                 <color>
+                                    <Color opacity="0.9316239356994629" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="loadingPanel" layoutX="-1.0" layoutY="-1.0" prefHeight="711.0" prefWidth="828.0" style="-fx-background-color: #eee;" visible="false">
+                     <children>
+                        <ImageView fitHeight="693.0" fitWidth="809.0" layoutX="13.0" layoutY="11.0" pickOnBounds="true" smooth="false">
+                           <image>
+                              <Image url="https://i.pinimg.com/originals/45/12/4d/45124d126d0f0b6d8f5c4d635d466246.gif" />
+                           </image>
+                        </ImageView>
+                     </children></Pane>
                </children>
             </Pane>
          </center>
+         <top>
+            <Pane fx:id="navbar" prefHeight="56.0" prefWidth="1020.0" style="-fx-background-color: #69305F; -fx-background-position: right center; -fx-background-size: cover;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="164.0" fitWidth="334.0" layoutX="751.0" layoutY="-37.0" pickOnBounds="true">
+                     <image>
+                        <Image url="https://i.ibb.co/bR3hncj/blob-1.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="closeBtn" accessibleText="Close the program" cancelButton="true" layoutX="974.0" layoutY="15.0" mnemonicParsing="false" onAction="#close" onMouseEntered="#closeEnter" onMouseExited="#closeExit" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: #BD081C; -fx-background-radius: 20px;" text="X" textFill="#f4ebd0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="minBtn" cancelButton="true" layoutX="926.0" layoutY="15.0" mnemonicParsing="false" onAction="#minimize" onMouseEntered="#minEnter" onMouseExited="#minExit" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: black; -fx-background-radius: 20px;" text="_" textFill="#f4ebd0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="searchTB" layoutX="193.0" layoutY="12.0" onKeyPressed="#press" prefHeight="40.0" prefWidth="638.0" promptText="Enter a username..." text="universitatearomanoamericana">
+                     <font>
+                        <Font size="14.0" />
+                     </font></TextField>
+                  <Button fx:id="searchBtn" layoutX="831.0" layoutY="13.0" mnemonicParsing="false" onAction="#search" prefHeight="37.0" prefWidth="44.0" style="-fx-background-color: #eee;" text="🔍" textFill="#9e418d">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </top>
+         <left>
+            <Pane prefHeight="717.0" prefWidth="193.0" style="-fx-background-image: url(https://i.ibb.co/LnCvxFN/ggqsfkxmvl8vfb5l.jpg); -fx-background-position: center center; -fx-background-size: cover;" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="704.0" prefWidth="196.0" style="-fx-background-color: rgba(0,0,0,0.3);">
+                     <children>
+                        <ImageView fitHeight="276.0" fitWidth="282.0" layoutX="-118.0" layoutY="445.0" pickOnBounds="true">
+                           <image>
+                              <Image url="https://i.ibb.co/KLbVy8H/blob-1.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="logoutBtn" layoutY="658.0" mnemonicParsing="false" onAction="#logout" onMouseEntered="#logoutEnter" onMouseExited="#logoutExit" prefHeight="50.0" prefWidth="193.0" style="-fx-background-color: black;" text="Logout" textFill="#d3b1c2">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="userLbl" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="16.0" layoutY="246.0" maxHeight="1.7976931348623157E308" maxWidth="500.0" minWidth="50.0" prefHeight="372.0" prefWidth="164.0" text="adminaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="58.0" layoutY="146.0" pickOnBounds="true">
+                           <image>
+                              <Image url="https://img.freepik.com/free-icon/user_318-159711.jpg" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="75.0" fitWidth="178.0" layoutX="11.0" layoutY="-50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="https://www.rau.ro/wp-content/uploads/logo-RAU-ro-1.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children></Pane>
+         </left>
       </BorderPane>
    </children>
 </AnchorPane>

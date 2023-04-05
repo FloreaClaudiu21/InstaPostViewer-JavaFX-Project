@@ -24,13 +24,9 @@ public class RegisterController {
     @FXML
     public Button closeBtn;
     @FXML
+    public Pane mainPanel;
+    @FXML
     public Button registerBtn;
-    @FXML
-    public ImageView logo;
-    @FXML
-    public Pane navbar;
-    @FXML
-    public ImageView raulogoImg;
     @FXML
     public TextField emailTF;
     @FXML
@@ -99,11 +95,11 @@ public class RegisterController {
     }
     @FXML
     public void closeEnter() {
-        this.closeBtn.setStyle("-fx-background-color: red;");
+        this.closeBtn.setStyle("-fx-background-color: red;-fx-background-radius: 20px;-fx-text-fill: yellow;");
     }
     @FXML
     public void closeExit() {
-        this.closeBtn.setStyle("-fx-background-color: #BD081C;");
+        this.closeBtn.setStyle("-fx-background-color: #BD081C;-fx-background-radius: 20px;-fx-text-fill: white;");
     }
     @FXML
     public void registerEnter() {
@@ -118,26 +114,21 @@ public class RegisterController {
     @FXML
     protected void initialize() {
         Platform.runLater(() -> {
-            this.scene = this.navbar.getScene();
+            this.scene = this.mainPanel.getScene();
             this.stage = (Stage) this.scene.getWindow();
             if (this.scene == null) {
                 return;
             }
             AtomicReference<Double> xOffset = new AtomicReference<>((double) 0);
             AtomicReference<Double> yOffset = new AtomicReference<>((double) 0);
-            this.navbar.setOnMousePressed(event -> {
+            this.mainPanel.setOnMousePressed(event -> {
                 xOffset.set(event.getSceneX());
                 yOffset.set(event.getSceneY());
             });
-            this.navbar.setOnMouseDragged(event -> {
+            this.mainPanel.setOnMouseDragged(event -> {
                 this.stage.setX(event.getScreenX() - xOffset.get());
                 this.stage.setY(event.getScreenY() - yOffset.get());
             });
-            String path = "/me/instapost/instapostviewer/images/";
-            String log = RegisterController.class.getResource(path + "logo.png").toString();
-            String lograu = RegisterController.class.getResource(path + "logo-RAU-ro-1.png").toString();
-            this.logo.setImage(new Image(log));
-            this.raulogoImg.setImage(new Image(lograu));
         });
     }
 }

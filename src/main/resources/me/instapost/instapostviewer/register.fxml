@@ -4,66 +4,110 @@
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="460.0" style="-fx-background-color: #613659;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.instapost.instapostviewer.auth.RegisterController">
+<AnchorPane prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #613659; -fx-effect: dropshadow(three-pass-box, derive( #613659, -20%), 10, 0, 4, 4);" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.instapost.instapostviewer.auth.RegisterController">
    <children>
-      <BorderPane layoutX="7.0" prefHeight="589.0" prefWidth="450.0" style="-fx-background-color: #211522;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="0.0">
-         <top>
-            <Pane fx:id="navbar" prefHeight="58.0" prefWidth="464.0" style="-fx-background-color: #613659;" BorderPane.alignment="CENTER">
+      <BorderPane fx:id="mainPanel" layoutX="1.0" layoutY="-2.0" prefHeight="480.0" prefWidth="636.0" style="-fx-background-color: #eee;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+         <left>
+            <Pane prefHeight="464.0" prefWidth="265.0" style="-fx-background-color: black; -fx-background-radius: 20px; -fx-background-image: url(https://i.ibb.co/LnCvxFN/ggqsfkxmvl8vfb5l.jpg); -fx-background-position: center center; -fx-background-size: cover;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="closeBtn" accessibleText="Close the program" cancelButton="true" layoutX="410.0" layoutY="15.0" mnemonicParsing="false" onAction="#close" onMouseEntered="#closeEnter" onMouseExited="#closeExit" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: #BD081C;" text="X" textFill="#f4ebd0">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Button>
-                  <Label layoutX="55.0" layoutY="15.0" text="InstaPostViewer - JavaFX Project" textFill="#f4ebd0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <ImageView fx:id="logo" blendMode="OVERLAY" fitHeight="38.0" fitWidth="40.0" layoutX="8.0" layoutY="10.0" pickOnBounds="true" smooth="false" />
-               </children>
-            </Pane>
-         </top>
-         <center>
-            <Pane prefHeight="535.0" prefWidth="401.0" BorderPane.alignment="CENTER">
-               <children>
-                  <ImageView fx:id="raulogoImg" blendMode="OVERLAY" fitHeight="117.0" fitWidth="248.0" layoutX="101.0" layoutY="14.0" pickOnBounds="true" smooth="false">
+                  <Pane prefHeight="476.0" prefWidth="266.0" style="-fx-background-color: rgba(0,0,0,0.35);">
+                     <children>
+                        <Label layoutX="22.0" layoutY="105.0" prefHeight="77.0" prefWidth="230.0" text="Welcome to InstaPostViewer" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Arial Black" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="70.0" layoutY="430.0" text="Java VS JavaFX" textFill="#d3b1c2">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <effect>
+                              <Bloom threshold="0.7" />
+                           </effect>
+                        </Label>
+                     </children></Pane>
+                  <ImageView fitHeight="73.0" fitWidth="140.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true">
+                     <image>
+                        <Image url="https://www.rau.ro/wp-content/uploads/logo-RAU-ro-1.png" />
+                     </image>
                      <effect>
-                        <ColorAdjust brightness="1.0" contrast="0.07" hue="0.05" saturation="0.05" />
+                        <Bloom />
                      </effect></ImageView>
-                  <TextField fx:id="emailTF" layoutX="41.0" layoutY="230.0" prefHeight="39.0" prefWidth="384.0" promptText="Enter your email address..." />
-                  <PasswordField fx:id="passTF" layoutX="42.0" layoutY="309.0" prefHeight="42.0" prefWidth="382.0" promptText="Enter your password..." />
-                  <Button fx:id="registerBtn" layoutX="150.0" layoutY="455.0" mnemonicParsing="false" onAction="#register" onMouseEntered="#registerEnter" onMouseExited="#registerExit" prefHeight="34.0" prefWidth="161.0" style="-fx-border-radius: 20px; -fx-background-color: black;" text="REGISTER" textFill="#a63290" />
-                  <Label layoutX="41.0" layoutY="282.0" text="Password:" textFill="#d3b1c2">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="43.0" layoutY="203.0" text="Email:" textFill="#d3b1c2">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Hyperlink fx:id="changeBtn" layoutX="109.0" layoutY="496.0" onAction="#switchScene" text="You already have an account? Login here" textFill="#9e418d" />
-                  <Label layoutX="68.0" layoutY="138.0" text="Sesiunea de comunicari stintifice" textFill="#c197d2">
-                     <font>
-                        <Font name="Arial Black" size="18.0" />
-                     </font>
-                  </Label>
+               </children></Pane>
+         </left>
+         <center>
+            <Pane prefHeight="471.0" prefWidth="371.0" BorderPane.alignment="CENTER">
+               <children>
                   <Label layoutX="173.0" layoutY="207.0" />
-                  <Label layoutX="158.0" layoutY="171.0" text="Java VS JavaFX" textFill="#c197d2">
-                     <font>
-                        <Font name="Arial" size="18.0" />
-                     </font>
-                  </Label>
-                  <PasswordField fx:id="repassTF" layoutX="42.0" layoutY="388.0" prefHeight="42.0" prefWidth="382.0" promptText="Enter your password..." />
-                  <Label layoutX="41.0" layoutY="361.0" text="Password again:" textFill="#d3b1c2">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
+                  <Pane layoutX="15.0" layoutY="15.0" prefHeight="439.0" prefWidth="340.0" style="-fx-background-color: white;">
+                     <children>
+                        <ImageView fitHeight="273.0" fitWidth="252.0" layoutX="-91.0" layoutY="284.0" pickOnBounds="true">
+                           <image>
+                              <Image url="https://i.ibb.co/KLbVy8H/blob-1.png" />
+                           </image>
+                        </ImageView>
+                        <TextField fx:id="emailTF" layoutX="13.0" layoutY="134.0" prefHeight="39.0" prefWidth="315.0" promptText="Enter your email address..." />
+                        <Label layoutX="12.0" layoutY="107.0" text="Email:" textFill="#9e418d">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="13.0" layoutY="184.0" text="Password:" textFill="#9e418d">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="106.0" layoutY="40.0" text="Register" textFill="#9e418d">
+                           <font>
+                              <Font name="Arial Black" size="24.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="147.0" fitWidth="162.0" layoutX="224.0" layoutY="-40.0" pickOnBounds="true">
+                           <image>
+                              <Image url="https://i.ibb.co/bR3hncj/blob-1.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="closeBtn" accessibleText="Close the program" cancelButton="true" layoutX="314.0" layoutY="-7.0" mnemonicParsing="false" onAction="#close" onMouseEntered="#closeEnter" onMouseExited="#closeExit" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #BD081C; -fx-background-radius: 20px; -fx-text-fill: white;" text="X">
+                           <font>
+                              <Font size="14.0" />
+                                       </font>
+                        </Button>
+                        <PasswordField fx:id="passTF" layoutX="13.0" layoutY="211.0" prefHeight="42.0" prefWidth="315.0" promptText="Enter your password..." />
+                        <Button fx:id="registerBtn" layoutX="90.0" layoutY="356.0" mnemonicParsing="false" onAction="#register" onMouseEntered="#registerEnter" onMouseExited="#registerExit" prefHeight="34.0" prefWidth="161.0" style="-fx-border-radius: 20px; -fx-background-color: black;" text="REGISTER" textFill="#d3b1c2" />
+                        <Hyperlink fx:id="changeBtn" layoutX="49.0" layoutY="400.0" onAction="#switchScene" text="You already have an account? Login here">
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.9473684430122375" green="0.9254385828971863" blue="0.9437134265899658" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.501960813999176" green="0.0470588244497776" blue="0.250980406999588" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </textFill></Hyperlink>
+                        <Label layoutX="13.0" layoutY="264.0" text="Re-password" textFill="#9e418d">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <PasswordField fx:id="repassTF" layoutX="13.0" layoutY="291.0" prefHeight="42.0" prefWidth="315.0" promptText="Enter your password..." />
+                        <Label layoutX="37.0" layoutY="77.0" text="- Discover the world one post at a time -" textFill="#d3b1c2">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Label layoutX="71.0" layoutY="73.0" />
                </children>
             </Pane>
          </center>
